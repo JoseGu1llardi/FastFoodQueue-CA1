@@ -26,10 +26,6 @@ public class FoodItem {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -46,17 +42,18 @@ public class FoodItem {
         this.weight = weight;
     }
 
+    /**
+     * Setters for id, bestBeforeDate, and addedTime are intentionally omitted for these fields.
+     * The best-before date and added time should not be changed after creation
+     * to maintain data integrity, traceability, and compliance with food safety requirements.
+     */
     public LocalDateTime getBestBeforeDate() {
         return bestBeforeDate;
     }
 
-    // setBestBeforeDate(LocalDateTime bestBeforeDate)
-
     public LocalDateTime getAddedTime() {
         return addedTime;
     }
-
-    // setAddedTime(LocalDateTime addedTime)
 
     @Override
     public String toString() {
