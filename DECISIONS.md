@@ -76,3 +76,19 @@ The fast-food restaurant scenario requires:
 | isFull()    | O(1)      | Check size is constant               |
 | displayAll()| O(n)      | Must loop through all n items        |
 | search()    | O(n)      | Must check each item in worst case   |
+
+## References
+
+Bigocheatsheet, 2025. *Big O Cheat Sheet - Time Complexity*. [online] Available at: https://www.bigocheatsheet.com/ (Accessed: 02 October 2026).
+
+Cormen, T.H., Leiserson, C.E., Rivest, R.L. and Stein, C., 2009. *Introduction to Algorithms*. 3rd ed. Cambridge: MIT Press.
+
+Iqbal, M., 2025. *Lecture 5: Algorithms and Constructs – Queue Implementation*. [Lecture slides] Higher Diploma in Science in Computing. CCT College Dublin.
+
+Oracle, 2015. *Java SE 8 Documentation*. [online] Available at: https://docs.oracle.com/javase/8/docs/ (Accessed: 03 October 2026).
+
+Oracle, 2025a. *Deque (Java Platform SE 8)*. [online] Available at: https://docs.oracle.com/javase/8/docs/api/java/util/Deque.html (Accessed: 03 October 2026).
+
+Oracle, 2025b. *LinkedList (Java Platform SE 8)*. [online] Available at: https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html (Accessed: 04 October 2026).
+
+SoftServe, 2025. *What is Object-Oriented Programming (OOP): Explaining Four Major Principles*. [online] Available at: https://career.softserveinc.com/en-us/stories/what-is-object-oriented-programming-oop-explaining-four-major-principles (Accessed: 04 October 2026).
