@@ -2,10 +2,13 @@ package main.java.com.fastfood.model;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Class that represents a food item in storage.
  * Encapsules all necessary information: name, weight, best-before date, and added time.
+ * Includes validation methods to ensure data integrity.
  */
 public class FoodItem {
 
@@ -15,11 +18,39 @@ public class FoodItem {
     private final LocalDateTime bestBeforeDate;
     private final LocalDateTime addedTime;
 
+    // Valid food types
+    private static final List<String> VALID_FOOD_TYPES = Arrays.asList(
+            "Burger", "Pizza", "Fries", "Sandwich", "Hotdog"
+    );
+
+    // Maximum days for best-before date (2 weeks)
+    private static final int MAX_BEST_BEFORE_DAYS = 14;
+
     public FoodItem(String name, double weight, LocalDateTime bestBeforeDate, LocalDateTime addedTime) {
+        // Validate all inputs before setting
+        validateName(name);
+
         this.name = name;
         this.weight = weight;
         this.bestBeforeDate = bestBeforeDate;
         this.addedTime = addedTime;
+    }
+
+    /**
+     * Validates that the food name is not empty and is one of the valid types
+     * @param name The food to validate
+     * @throws IllegalArgumentException if name is invalid
+     */
+    private void validateName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Food name cannot be null or empty.");
+        }
+
+        if (!VALID_FOOD_TYPES.contains(name)) {
+            throw new IllegalArgumentException(
+                    String.format("Food name '%s' is invalid. Must be one of the %s", name, VALID_FOOD_TYPES)
+            );
+        }
     }
 
     public String getId() {
