@@ -3,7 +3,6 @@ package main.java.com.fastfood.model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.UUID;
 
 /**
@@ -14,47 +13,36 @@ import java.util.UUID;
 public class FoodItem {
 
     private final String id;
-    private String name;
+    private FoodType foodType;
     private double weight;
     private final LocalDateTime bestBeforeDate;
     private final LocalDateTime addedTime;
 
-    // Valid food types
-    private static final List<String> VALID_FOOD_TYPES = List.of(
-            "Burger", "Pizza", "Fries", "Sandwich", "Hotdog"
-    );
-
     // Maximum days for best-before date (2 weeks)
     private static final int MAX_BEST_BEFORE_DAYS = 14;
 
-    public FoodItem(String name, double weight, LocalDateTime bestBeforeDate) {
+    public FoodItem(FoodType foodType, double weight, LocalDateTime bestBeforeDate) {
         id = UUID.randomUUID().toString();
 
         // Validate all inputs before setting
-        validateName(name);
+        validateFoodType(foodType);
         validateWeight(weight);
         validateBestBeforeDate(bestBeforeDate);
 
-        this.name = name;
+        this.foodType = foodType;
         this.weight = weight;
         this.bestBeforeDate = bestBeforeDate;
         this.addedTime = LocalDateTime.now();
     }
 
     /**
-     * Validates that the food name is not empty and is one of the valid types
-     * @param name The food to validate
-     * @throws IllegalArgumentException if name is invalid
+     * Validates that the food type is not null
+     * @param foodType The food type to validate
+     * @throws IllegalArgumentException if food type is null
      */
-    private void validateName(String name) {
-        if (name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("Food name cannot be null or empty.");
-        }
-
-        if (!VALID_FOOD_TYPES.contains(name)) {
-            throw new IllegalArgumentException(
-                    String.format("Food name '%s' is invalid. Must be one of: %s", name, VALID_FOOD_TYPES)
-            );
+    private void validateFoodType(FoodType foodType) {
+        if (foodType == null) {
+            throw new IllegalArgumentException("FoodType cannot be null");
         }
     }
 
@@ -101,13 +89,13 @@ public class FoodItem {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public FoodType getFoodType() {
+        return foodType;
     }
 
-    public void setName(String name) {
-        validateName(name);
-        this.name = name;
+    public void setFoodType(FoodType foodType) {
+        validateFoodType(foodType);
+        this.foodType = foodType;
     }
 
     public double getWeight() {
@@ -138,17 +126,10 @@ public class FoodItem {
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("dd/MM HH:mm:ss");
 
         return String.format("Food: %-10s | Weight: %6.1fg | Best Before: %s | Added at: %s",
-                name,
+                foodType.getDisplayName(),
                 weight,
                 bestBeforeDate.format(dateFormatter),
                 addedTime.format(timeFormatter));
     }
 
-    /**
-     * Returns the list of valid food types
-     * @return List of valid food type names
-     */
-    public static List<String> getValidFoodTypes() {
-        return VALID_FOOD_TYPES;
-    }
 }
