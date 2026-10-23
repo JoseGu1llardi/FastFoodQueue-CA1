@@ -3,12 +3,15 @@ package main.java.com.fastfood.ui;
 
 import java.util.Scanner;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import main.java.com.fastfood.model.FoodItem;
 import main.java.com.fastfood.model.FoodType;
 
 public class MainApp {
 
     public static void main(String[] args) {
+
+        System.out.println("TEST: Updated MainApp is running!");
 
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
@@ -75,13 +78,13 @@ public class MainApp {
                     date.atStartOfDay()
             );
 
-        } catch (IllegalArgumentException e) {
-    System.out.println();
-    System.out.println("ERROR: " + e.getMessage());
-    System.out.println("Food item was not added.");
-    System.out.println("Please try again.");
-    System.out.println();
-    return null;
-}
+        } catch (IllegalArgumentException | DateTimeParseException e) {
+            System.out.println();
+            System.out.println("ERROR: " + (e.getMessage() != null ? e.getMessage() : "Invalid input format."));
+            System.out.println("Food item was not added.");
+            System.out.println("Please try again.");
+            System.out.println();
+            return null;
+        }
     }
 }
