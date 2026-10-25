@@ -1,4 +1,4 @@
-package main.java.com.fastfood.model;
+package com.fastfood.model;
 
 import java.util.Arrays;
 
