@@ -52,8 +52,8 @@ java -cp out com.fastfood.ui.MainApp
 - Maven
 
 ## Students
-Jose Wellington Ribeiro - 2024521
-William de Brito leal - 2024230
+Jose Wellington Ribeiro - 2024521  |
+William de Brito Leal - 2024230
 
 ## GitHub Repository
 https://github.com/JoseGu1llardi/FastFoodQueue-CA1.git
