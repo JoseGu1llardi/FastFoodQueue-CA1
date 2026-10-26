@@ -7,7 +7,7 @@ import java.util.UUID;
 
 /**
  * Class that represents a food item in storage.
- * Encapsulates all necessary information: name, weight, best-before date, and added time.
+ * Encapsulates all necessary information: food type, weight, best-before date, and added time.
  * Includes validation methods to ensure data integrity.
  */
 public class FoodItem {

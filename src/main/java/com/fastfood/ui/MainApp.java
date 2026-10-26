@@ -1,4 +1,3 @@
-
 package com.fastfood.ui;
 
 import java.util.List;

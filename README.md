@@ -16,7 +16,16 @@ Java application that manages food item storage in a fast-food restaurant using 
 - Check if storage is full or empty
 
 ## Project Structure
-
+```
+src/main/java/com/fastfood/
+├── model/
+│   ├── FoodItem.java        # food item (type, weight, best-before, added time)
+│   └── FoodType.java        # enum with the 5 food types
+├── datastructure/
+│   └── FoodQueue.java       # FIFO queue, max 8 trays
+└── ui/
+    └── MainApp.java         # console menu
+```
 
 ## How to Run
 The project uses the standard Maven layout (`src/main/java`), so it can be opened in any Java IDE.
@@ -34,7 +43,7 @@ java -jar target/FastFoodQueue-1.0.jar
 
 **Command line (JDK only)**
 ```
-javac -d out src/main/java/com/fastfood/model/*.java src/main/java/com/fastfood/ui/*.java
+javac -d out src/main/java/com/fastfood/*/*.java
 java -cp out com.fastfood.ui.MainApp
 ```
 
@@ -42,8 +51,9 @@ java -cp out com.fastfood.ui.MainApp
 - Java 17+
 - Maven
 
-## Student
-Jose Wellington Ribeiro
+## Students
+Jose Wellington Ribeiro - 2024521
+William de Brito leal - 2024230
 
 ## GitHub Repository
 https://github.com/JoseGu1llardi/FastFoodQueue-CA1.git

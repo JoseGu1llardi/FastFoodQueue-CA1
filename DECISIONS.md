@@ -5,7 +5,7 @@ The fast-food restaurant scenario requires:
 - Adding food items from one side (rear)
 - Removing food items from the opposite side (front)
 - Maximum capacity of 8 trays
-- Track name, weight, best-before date, and added time
+- Track food type, weight, best-before date, and added time
 
 ## Options Considered
 

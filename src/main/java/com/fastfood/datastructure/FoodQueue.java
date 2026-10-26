@@ -1,4 +1,3 @@
-
 package com.fastfood.datastructure;
 
 import com.fastfood.model.FoodItem;
