@@ -70,8 +70,7 @@ public class MainApp {
             if (!scanner.hasNextLine()) return null;
 
             String foodInput = scanner.nextLine();
-            
-FoodType type = FoodType.fromString(foodInput);
+            FoodType type = FoodType.fromString(foodInput);
 
             System.out.print("Enter weight in grams: ");
             if (!scanner.hasNextLine()) return null;

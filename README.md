@@ -19,13 +19,28 @@ Java application that manages food item storage in a fast-food restaurant using 
 
 
 ## How to Run
-1. Open project in IntelliJ IDEA
+The project uses the standard Maven layout (`src/main/java`), so it can be opened in any Java IDE.
+
+**IntelliJ IDEA / Eclipse / NetBeans / VS Code**
+1. Open (or import) the project folder as a Maven project
 2. Run `MainApp` class in `com.fastfood.ui` package
 3. Follow the interactive console menu
 
+**Command line (Maven)**
+```
+mvn package
+java -jar target/FastFoodQueue-1.0.jar
+```
+
+**Command line (JDK only)**
+```
+javac -d out src/main/java/com/fastfood/model/*.java src/main/java/com/fastfood/ui/*.java
+java -cp out com.fastfood.ui.MainApp
+```
+
 ## Technologies
 - Java 17+
-- IntelliJ IDEA
+- Maven
 
 ## Student
 Jose Wellington Ribeiro
