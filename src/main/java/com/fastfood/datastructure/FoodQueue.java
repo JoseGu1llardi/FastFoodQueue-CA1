@@ -1,17 +1,22 @@
+
 package com.fastfood.datastructure;
 
 import com.fastfood.model.FoodItem;
+import com.fastfood.model.FoodType;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
-/*
-    Implements de Queue data structure (FIFO) for the fast-food storage.
-    Maximum capacity is 8 trays.
+/**
+ * Implements the Queue data structure (FIFO) for fast-food storage.
+ * Maximum capacity is 8 trays.
  */
 public class FoodQueue {
+
     private static final int MAX_CAPACITY = 8;
-    private Queue<FoodItem> queue;
+    private final Queue<FoodItem> queue;
 
     public FoodQueue() {
         this.queue = new LinkedList<>();
@@ -29,37 +34,56 @@ public class FoodQueue {
         return queue.size();
     }
 
-    /*
-        Adds a food item to the storage.
-        @return true if added, false if storage is full.
+    /**
+     * Adds a food item to the storage.
+     * @return true if added, false if storage is full.
      */
     public boolean addFood(FoodItem item) {
         if (isFull()) {
             return false;
         }
+
         return queue.add(item);
     }
 
-    /*
-        Removes and return the first food item (FIFO).
-        @return the FoodItem, or null if empty.
+    /**
+     * Removes and returns the first food item (FIFO).
+     * @return the FoodItem, or null if empty.
      */
     public FoodItem remove() {
         if (isEmpty()) {
             return null;
         }
+
         return queue.poll();
     }
 
-    /*
-        Return the first food item without removing it.
-        @return the FoodItem, or null if empty.
+    /**
+     * Returns the first food item without removing it.
+     * @return the FoodItem, or null if empty.
      */
     public FoodItem peek() {
         if (isEmpty()) {
             return null;
         }
+
         return queue.peek();
+    }
+
+    /**
+     * Searches the storage for all items of a given food type.
+     * @return a list with the matching items (empty if none found).
+     */
+    public List<FoodItem> searchByType(FoodType type) {
+        List<FoodItem> result = new ArrayList<>();
+
+        for (FoodItem item : queue) {
+            if (item.getFoodType() == type) {
+                result.add(item);
+            }
+        }
+
+        return result;
     }
 
     /**
@@ -70,10 +94,13 @@ public class FoodQueue {
             System.out.println("Storage is currently empty.");
             return;
         }
+
         System.out.println("--- Current Storage (" + size() + "/" + MAX_CAPACITY + " trays) ---");
+
         for (FoodItem item : queue) {
             System.out.println(" -> " + item.toString());
         }
+
         System.out.println("---------------------------------------------");
     }
 }
